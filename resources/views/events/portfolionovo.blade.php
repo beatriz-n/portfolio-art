@@ -26,11 +26,18 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-6">
                                 <label for="statusArte">Status</label>
                                 <select id="statusArte" name="statusArte" class="form-control">
                                     <option selected>Ativo</option>
                                     <option>Inativo</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="tipoArte">Tipo</label>
+                                <select id="tipoArte" name="tipoArte" class="form-control" onchange="materialInfo()">
+                                    <option value="1" selected>Digital</option>
+                                    <option value="2">Tradicional</option>
                                 </select>
                             </div>
                         </div>
@@ -40,16 +47,15 @@
                         </div>
                         <fieldset class="form-group">
                             <div class="row">
-                                <!-- <legend class="col-form-label col-sm-2 pt-0">Radios</legend> -->
                                 <div class="col-sm-10">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="emolduradoArte" name="emolduradoArte" value="1" checked>
+                                        <input class="form-check-input" type="checkbox" id="emolduradoArte" name="emolduradoArte" value="1">
                                         <label class="form-check-label" for="emolduradoArte">
                                             Está Emoldurado?
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="envernizadoArte" name="envernizadoArte" value="2">
+                                        <input class="form-check-input" type="checkbox" id="envernizadoArte" name="envernizadoArte" value="2">
                                         <label class="form-check-label" for="envernizadoArte">
                                             Está Envernizado?
                                         </label>
@@ -57,12 +63,42 @@
                                 </div>
                             </div>
                         </fieldset>
+                        <br>
+                        <div class="listarMaterial" style="display: none;">
+                            <div class="card mb-4">
+                                <div class="card-header" id="portfolio-table">
+                                    <i class="fas fa-table me-1"></i>
+                                    Escolha o Material
+                                </div>
+
+                                <div class="card-body">
+                                    <table id="datatablesSimple" class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Título</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="material1" name="material" value="2">
+                                                    </div>
+                                                </td>
+                                                <td>Tinta óleo</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                     <br>
                     <button type="submit" class="btn btn-primary">Cadastrar</button>
+                </form>
             </div>
-            </form>
         </div>
     </div>
 </main>

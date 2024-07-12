@@ -1,12 +1,3 @@
-/*!
-    * Start Bootstrap - SB Admin v7.0.7 (https://startbootstrap.com/template/sb-admin)
-    * Copyright 2013-2023 Start Bootstrap
-    * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/LICENSE)
-    */
-    // 
-// Scripts
-// 
-
 window.addEventListener('DOMContentLoaded', event => {
 
     // Toggle the side navigation
@@ -23,4 +14,19 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     }
 
+});
+
+function materialInfo() {
+    var tipo = document.getElementById('tipoArte').value;
+    var listarmaterial = document.querySelector('.listarMaterial');
+    
+    if (tipo == 1) {
+        listarmaterial.style.display = 'none';
+    } else if (tipo == 2) {
+        listarmaterial.style.display = 'block';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('tipoArte').addEventListener('change', materialInfo);
 });
