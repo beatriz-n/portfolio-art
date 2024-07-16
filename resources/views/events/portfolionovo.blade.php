@@ -12,30 +12,30 @@
         </ol>
         <div class="card mb-4">
             <div class="card-body">
-                <form>
+                <form action="/insert" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="container">
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="tituloArte">Título</label>
-                                <input type="text" class="form-control" id="tituloArte" name="tituloArte" aria-describedby="emailHelp" placeholder="Título da Arte">
+                                <input required type="text" class="form-control" id="tituloArte" name="tituloArte" aria-describedby="emailHelp" placeholder="Título da Arte">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="valorArte">Valor</label>
-                                <input type="text" class="form-control" id="valorArte" name="valorArte" placeholder="Valor da Arte">
+                                <input required type="text" class="form-control" id="valorArte" name="valorArte" placeholder="Valor da Arte">
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="statusArte">Status</label>
                                 <select id="statusArte" name="statusArte" class="form-control">
-                                    <option selected>Ativo</option>
-                                    <option>Inativo</option>
+                                    <option value="1" selected>Ativo</option>
+                                    <option value="0">Inativo</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="tipoArte">Tipo</label>
-                                <select id="tipoArte" name="tipoArte" class="form-control" onchange="materialInfo()">
+                                <select id="tipoArte" name="tipoArte" class="form-control" onchange="materialInfo()" required>
                                     <option value="1" selected>Digital</option>
                                     <option value="2">Tradicional</option>
                                 </select>
@@ -43,7 +43,7 @@
                         </div>
                         <div class="form-group col-md-12">
                             <label for="imagemArte" class="form-label">Imagem da Arte</label>
-                            <input class="form-control" type="file" id="imagemArte" name="imagemArte" name="image">
+                            <input class="form-control" type="file" id="imagemArte" name="imagemArte" name="image" required>
                         </div>
                         <fieldset class="form-group">
                             <div class="row">
@@ -55,7 +55,7 @@
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="envernizadoArte" name="envernizadoArte" value="2">
+                                        <input class="form-check-input" type="checkbox" id="envernizadoArte" name="envernizadoArte" value="1">
                                         <label class="form-check-label" for="envernizadoArte">
                                             Está Envernizado?
                                         </label>

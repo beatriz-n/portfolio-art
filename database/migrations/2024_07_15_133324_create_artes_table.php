@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('artes', function (Blueprint $table) {
             $table->id('idArte');
+            $table->timestamps();
             $table->string('tituloArte');
             $table->decimal('valorArte');
-            $table->integer('statusArte');
-            $table->integer('vernizArte');
-            $table->integer('molduraArte');
+            $table->integer('statusArte')->nullable();
+            $table->integer('envernizadoArte')->nullable();
+            $table->integer('emolduradoArte')->nullable();
             $table->string('imagemArte');
             $table->dateTime('envioArte');
         });

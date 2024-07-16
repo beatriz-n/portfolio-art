@@ -87,6 +87,8 @@
                     Listar Portfólio
                 </div>
                 <div class="card-body">
+                    @if($artes)
+
                     <table id="datatablesSimple" class="table table-striped">
                         <thead>
                             <tr>
@@ -98,18 +100,28 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($artes as $arte)
                             <tr>
-                                <td>18/04/2024</td>
-                                <td>Comic</td>
-                                <td>R$150,00</td>
-                                <td><span class="badge badge-success">Ativo</span></td>
+                                <td>{{ date('d/m/Y',strtotime($arte['envioArte'])) }}</td>
+                                <td>{{ $arte['tituloArte'] }}</td>
+                                <td>{{ 'R$' . number_format($arte['valorArte'], 2, ',', '.') }}</td>
+                                <td>@if ($arte['statusArte'] == 1)
+                                    <span class="badge badge-success">Ativo</span>
+                                    @else
+                                    <span class="badge badge-danger">Inativo</span>
+                                    @endif
+                                </td>
                                 <td>
                                     <a href="portfolioeditar" class="btn btn-sm btn-primary" title="Editar"><i class="fas fa-edit"></i></a>
                                     <a href="#" class="btn btn-sm btn-danger" title="Excluir"><i class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
+                    @else
+                        <span style="font-size: 2em;">Nenhuma arte encontrada!</span>
+                    @endif
                 </div>
             </div>
         </div>

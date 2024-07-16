@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,9 @@ Route::get('/', function () {
 });
 
 //admin
-Route::get('/admin', function () {
-    return view('events.admin');
-})->name('admin');
+// Route::get('/admin', function () {
+//     return view('events.admin');
+// })->name('admin');
 
 //arte
 Route::get('/portfolionovo', function () {
@@ -43,3 +44,9 @@ Route::get('/materialnovo', function () {
 Route::get('/materialeditar', function () {
     return view('events.materialeditar');
 })->name('materialeditar');
+
+Route::get('/events/materialnovo', [ArteController::class, 'create'])->middleware('auth');
+
+Route::post('/insert', [ArteController::class, 'insert']);
+
+Route::get('/admin', [ArteController::class, 'show'])->name('admin');
