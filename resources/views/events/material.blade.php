@@ -6,6 +6,17 @@
 <main>
     <br>
     <div class="container-fluid">
+        @if (session('msg'))
+        <div class="alert alert-success">
+            {{ session('msg') }}
+        </div>
+        @endif
+
+        @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+        @endif
         <div class="row">
             <!-- Conteúdo principal -->
             <div class="col-md-12">
@@ -33,13 +44,15 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($materiais as $material)
                                 <tr>
-                                    <td>Tinta Oléo</td>
+                                    <td>{{ $material['tituloMaterial'] }}</td>
                                     <td>
-                                        <a href="materialeditar" class="btn btn-sm btn-primary" title="Editar"><i class="fas fa-edit"></i></a>
-                                        <a href="#" class="btn btn-sm btn-danger" title="Excluir"><i class="fas fa-trash-alt"></i></a>
+                                        <a href="/events/materialeditar/{{$material['idMaterial']}}" class="btn btn-sm btn-primary" title="Editar"><i class="fas fa-edit"></i></a>
+                                        <a href="/material/delete/{{$material['idMaterial']}}" class="btn btn-sm btn-danger" title="Excluir"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

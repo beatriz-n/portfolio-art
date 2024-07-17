@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArteController;
+use App\Http\Controllers\MaterialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,21 +33,32 @@ Route::get('/portfolioeditar', function () {
     return view('events.portfolioeditar');
 })->name('portfolioeditar');
 
-//material
-Route::get('/material', function () {
-    return view('events.material');
-})->name('material');
+// //material
+// Route::get('/material', function () {
+//     return view('events.material');
+// })->name('material');
 
 Route::get('/materialnovo', function () {
     return view('events.materialnovo');
 })->name('materialnovo');
 
-Route::get('/materialeditar', function () {
-    return view('events.materialeditar');
-})->name('materialeditar');
+// Route::get('/materialeditar', function () {
+//     return view('events.materialeditar');
+// })->name('materialeditar');
+
 
 Route::get('/events/materialnovo', [ArteController::class, 'create'])->middleware('auth');
 
 Route::post('/insert', [ArteController::class, 'insert']);
 
 Route::get('/admin', [ArteController::class, 'show'])->name('admin');
+
+Route::post('/insertMaterial', [MaterialController::class, 'insert']);
+
+Route::get('/material', [MaterialController::class, 'show'])->name('material');
+
+Route::get('/events/materialeditar/{id}', [MaterialController::class, 'edit'])->name('materialeditar');
+
+Route::post('/material/update/{id}', [MaterialController::class, 'update']);
+
+Route::get('/material/delete/{id}', [MaterialController::class, 'delete']);

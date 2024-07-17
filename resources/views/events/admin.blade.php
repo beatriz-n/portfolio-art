@@ -79,7 +79,18 @@
                     </div>
                 </div>
             </div>
+            
+            @if (session('msg'))
+            <div class="alert alert-success">
+                {{ session('msg') }}
+            </div>
+            @endif
 
+            @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+            @endif
             <!-- Exemplo de DataTable em um card -->
             <div class="card mb-4">
                 <div class="card-header" id="portfolio-table">
@@ -120,7 +131,7 @@
                         </tbody>
                     </table>
                     @else
-                        <span style="font-size: 2em;">Nenhuma arte encontrada!</span>
+                    <span style="font-size: 2em;">Nenhuma arte encontrada!</span>
                     @endif
                 </div>
             </div>

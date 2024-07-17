@@ -12,21 +12,21 @@
         </ol>
         <div class="card mb-4">
             <div class="card-body">
-                <form>
+                <form action="/material/update/{{$material->idMaterial}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="container">
                         <div class="row">
                             <div class="form-group col-md-12">
                                 <label for="tituloMaterial">Título</label>
-                                <input type="text" class="form-control" id="tituloMaterial" name="tituloMaterial" aria-describedby="emailHelp" placeholder="Título do Material">
+                                <input type="text" value="{{$material->tituloMaterial}}" class="form-control" id="tituloMaterial" name="tituloMaterial" placeholder="Título do Material">
                             </div>
                         </div>
                         </fieldset>
                     </div>
                     <br>
                     <button type="submit" class="btn btn-primary">Editar</button>
+                </form>
             </div>
-            </form>
         </div>
     </div>
 </main>

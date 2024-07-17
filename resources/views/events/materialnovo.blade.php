@@ -12,7 +12,7 @@
         </ol>
         <div class="card mb-4">
             <div class="card-body">
-                <form>
+                <form action="/insertMaterial" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="container">
                         <div class="row">
@@ -25,8 +25,8 @@
                     </div>
                     <br>
                     <button type="submit" class="btn btn-primary">Cadastrar</button>
+                </form>
             </div>
-            </form>
         </div>
     </div>
 </main>
