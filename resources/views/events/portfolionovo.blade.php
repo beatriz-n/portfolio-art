@@ -72,6 +72,7 @@
                                 </div>
 
                                 <div class="card-body">
+                                    @if($materiais)
                                     <table id="datatablesSimple" class="table table-striped">
                                         <thead>
                                             <tr>
@@ -79,17 +80,24 @@
                                                 <th>Título</th>
                                             </tr>
                                         </thead>
+
                                         <tbody>
+                                            @foreach($materiais as $material)
                                             <tr>
                                                 <td>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="material1" name="material" value="2">
+                                                        <input class="form-check-input" type="checkbox" id="material{{$material['idMaterial']}}" name="materiais[]" value="{{$material['idMaterial']}}">
                                                     </div>
                                                 </td>
-                                                <td>Tinta óleo</td>
+                                                <td>{{ $material['tituloMaterial'] }}</td>
                                             </tr>
+                                            @endforeach
                                         </tbody>
+
                                     </table>
+                                    @else
+                                    <span style="font-size: 2em;">Nenhum material encontrado!</span>
+                                    @endif
                                 </div>
                             </div>
                         </div>

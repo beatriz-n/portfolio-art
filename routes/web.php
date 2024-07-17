@@ -47,7 +47,9 @@ Route::get('/materialnovo', function () {
 // })->name('materialeditar');
 
 
-Route::get('/events/materialnovo', [ArteController::class, 'create'])->middleware('auth');
+Route::get('/events/materialnovo', [MaterialController::class, 'create'])->middleware('auth');
+
+Route::get('/portfolionovo', [ArteController::class, 'create']);
 
 Route::post('/insert', [ArteController::class, 'insert']);
 

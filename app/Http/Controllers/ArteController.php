@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Arte;
+use App\Models\Material;
+use App\Models\ArtesMateriais;
 
 class ArteController extends Controller
 {
@@ -27,7 +29,8 @@ class ArteController extends Controller
 
     public function create()
     {
-        return view('events.portfolionovo');
+        $materiais = Material::all()->toArray();
+        return view('events.portfolionovo', ['materiais' => $materiais]);
     }
 
     public function insert(Request $request)
@@ -57,6 +60,17 @@ class ArteController extends Controller
         }
 
         $arte->save();
+
+        if ($request->has('materiais')) {
+            $materiais = $request->materiais;
+
+            foreach ($materiais as $idMaterial) {
+                ArtesMateriais::insert([
+                    'idArte' => $arte->idArte,
+                    'idMaterial' => $idMaterial
+                ]);
+            }
+        }
 
         return redirect('/admin')->with('msg', 'Arte criada com sucesso!');
     }
