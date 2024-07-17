@@ -36,6 +36,7 @@
                         Listar Materiais
                     </div>
                     <div class="card-body">
+                        @if($materiais)
                         <table id="datatablesSimple" class="table table-striped">
                             <thead>
                                 <tr>
@@ -55,6 +56,9 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        @else
+                        <span style="font-size: 2em;">Nenhum material encontrado!</span>
+                        @endif
                     </div>
                 </div>
             </div>
