@@ -52,3 +52,13 @@ Route::get('/arte/delete/{id}', [ArteController::class, 'delete']);
 
 Route::get('/events/portfolioeditar/{id}', [ArteController::class, 'edit'])->name('portfolioeditar');
 
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
