@@ -13,6 +13,11 @@ class ArtesMateriais extends Model
 
     public $timestamps = false;
 
+    protected $fillable = [
+        'idArte',
+        'idMaterial',        
+    ];
+
     public function arte()
     {
         return $this->belongsTo(Arte::class, 'idArte');

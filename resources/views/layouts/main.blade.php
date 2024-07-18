@@ -14,6 +14,7 @@
     <!-- Scripts JavaScript -->
     <script src="{{ asset('assets/js/script.js') }}"></script>
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body class="sb-nav-fixed">

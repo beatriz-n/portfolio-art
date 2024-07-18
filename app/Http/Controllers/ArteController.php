@@ -75,6 +75,72 @@ class ArteController extends Controller
         return redirect('/admin')->with('msg', 'Arte criada com sucesso!');
     }
 
+    public function update(Request $request, $id)
+    {
+        $arte = Arte::find($id);
+
+        if (!$arte) {
+            return redirect('/admin')->with('error', 'Arte não encontrada.');
+        }
+
+        $arte->tituloArte = $request->tituloArte;
+        $arte->valorArte = $request->valorArte;
+        $arte->statusArte = $request->statusArte;
+        $arte->envernizadoArte = $request->envernizadoArte;
+        $arte->emolduradoArte = $request->emolduradoArte;
+
+        if ($request->hasFile('imagemArte') && $request->file('imagemArte')->isValid()) {
+            $requestImage = $request->imagemArte;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $requestImage->move(public_path('img/artes'), $imageName);
+            $arte->imagemArte = $imageName;
+        }
+
+        $arte->save();
+
+        if ($request->has('materiais')) {
+            $materiais = $request->materiais;
+
+            ArtesMateriais::where('idArte', $arte->idArte)->delete();
+
+            foreach ($materiais as $idMaterial) {
+                ArtesMateriais::create([
+                    'idArte' => $arte->idArte,
+                    'idMaterial' => $idMaterial
+                ]);
+            }
+        } else {
+            ArtesMateriais::where('idArte', $arte->idArte)->delete();
+        }
+
+        return redirect('/admin')->with('msg', 'Arte atualizada com sucesso!');
+    }
+
+    public function delete($id)
+    {
+        $arte = Arte::find($id);
+
+        if (!$arte) {
+            return redirect('/admin')->with('error', 'Arte não encontrada.');
+        }
+
+        ArtesMateriais::where('idArte', $arte->idArte)->delete();
+
+        $arte->delete();
+
+        return redirect('/admin')->with('msg', 'Arte excluída com sucesso!');
+    }
+
+    public function edit($id)
+    {
+        $arte = Arte::findOrFail($id);
+        $artesMateriais = ArtesMateriais::where('idArte', $id)->get()->toArray();
+        $materiais = Material::all()->toArray();
+
+        return view('events.portfolioeditar', ['arte' => $arte, 'artesMateriais' => $artesMateriais, 'materiais' => $materiais]);
+    }
+
     public function show()
     {
         $artes = Arte::all()->toArray();

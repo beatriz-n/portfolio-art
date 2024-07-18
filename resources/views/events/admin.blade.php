@@ -79,7 +79,7 @@
                     </div>
                 </div>
             </div>
-            
+
             @if (session('msg'))
             <div class="alert alert-success">
                 {{ session('msg') }}
@@ -123,8 +123,8 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="portfolioeditar" class="btn btn-sm btn-primary" title="Editar"><i class="fas fa-edit"></i></a>
-                                    <a href="#" class="btn btn-sm btn-danger" title="Excluir"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="/events/portfolioeditar/{{$arte['idArte']}}" class="btn btn-sm btn-primary" title="Editar"><i class="fas fa-edit"></i></a>
+                                    <a href="/arte/delete/{{$arte['idArte']}}" class="btn btn-sm btn-danger" title="Excluir"><i class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>
                             @endforeach
