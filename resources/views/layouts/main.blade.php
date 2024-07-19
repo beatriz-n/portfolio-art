@@ -32,12 +32,17 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
+                    <!-- <li><a class="dropdown-item" href="#!">Settings</a></li>
                     <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                     <li>
                         <hr class="dropdown-divider" />
+                    </li> -->
+                    <li>
+                        <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                        <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none;">
+                            @csrf
+                        </form>
                     </li>
-                    <li><a class="dropdown-item" href="#!">Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -50,7 +55,7 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Início</div>
-                        <a class="nav-link" href="#">Dashboard</a>
+                        <a class="nav-link" href="/admin">Dashboard</a>
                         <div class="sb-sidenav-menu-heading">Cadastros</div>
                         <a class="nav-link" href="{{ route('admin') }}#portfolio-table">Portfólio</a>
                         <a class="nav-link" href="{{ route('material') }}">Material</a>
@@ -62,7 +67,7 @@
         <!-- Conteúdo dinâmico -->
         <div id="layoutSidenav_content">
             @yield('content')
-            
+
         </div>
     </div>
 

@@ -103,26 +103,26 @@
                     <table id="datatablesSimple" class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Data Envio</th>
+                                <th style="text-align: center;">Data Envio</th>
                                 <th>Título</th>
                                 <th>Valor</th>
-                                <th>Status</th>
-                                <th>Opções</th>
+                                <th style="text-align: center;">Status</th>
+                                <th style="text-align: center;">Opções</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($artes as $arte)
                             <tr>
-                                <td>{{ date('d/m/Y',strtotime($arte['envioArte'])) }}</td>
+                                <td style="text-align: center;">{{ date('d/m/Y',strtotime($arte['envioArte'])) }}</td>
                                 <td>{{ $arte['tituloArte'] }}</td>
                                 <td>{{ 'R$' . number_format($arte['valorArte'], 2, ',', '.') }}</td>
-                                <td>@if ($arte['statusArte'] == 1)
+                                <td style="text-align: center;">@if ($arte['statusArte'] == 1)
                                     <span class="badge badge-success">Ativo</span>
                                     @else
                                     <span class="badge badge-danger">Inativo</span>
                                     @endif
                                 </td>
-                                <td>
+                                <td style="text-align: center;">
                                     <a href="/events/portfolioeditar/{{$arte['idArte']}}" class="btn btn-sm btn-primary" title="Editar"><i class="fas fa-edit"></i></a>
                                     <a href="/arte/delete/{{$arte['idArte']}}" class="btn btn-sm btn-danger" title="Excluir"><i class="fas fa-trash-alt"></i></a>
                                 </td>

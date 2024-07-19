@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArteController;
 use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\loginController;
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,19 +24,19 @@ Route::get('/', function () {
 //arte
 Route::get('/portfolionovo', function () {
     return view('events.portfolionovo');
-})->name('portfolionovo');
+})->name('portfolionovo')->middleware('auth');
 
 Route::get('/materialnovo', function () {
     return view('events.materialnovo');
-})->name('materialnovo');
+})->name('materialnovo')->middleware('auth');
 
 Route::get('/events/materialnovo', [MaterialController::class, 'create'])->middleware('auth');
 
-Route::get('/portfolionovo', [ArteController::class, 'create']);
+Route::get('/portfolionovo', [ArteController::class, 'create'])->middleware('auth');
 
-Route::post('/insert', [ArteController::class, 'insert']);
+Route::post('/insert', [ArteController::class, 'insert'])->middleware('auth');
 
-Route::get('/admin', [ArteController::class, 'show'])->name('admin');
+Route::get('/admin', [ArteController::class, 'show'])->name('admin')->middleware('auth');
 
 Route::post('/insertMaterial', [MaterialController::class, 'insert']);
 
@@ -62,3 +64,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
