@@ -22,9 +22,8 @@
                             </div>
                         </div>
                         </fieldset>
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
                     </div>
-                    <br>
-                    <button type="submit" class="btn btn-primary">Cadastrar</button>
                 </form>
             </div>
         </div>

@@ -1,9 +1,11 @@
-
 @extends('layouts.main2')
 
 @section('title', 'Triz')
 
 @section('content')
+
+
+
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
 
@@ -11,59 +13,59 @@
     <h1>Bem-Vindo</h1>
     <h2>Esta é minha pagina de arte.</h2>
 
-        <a class="hero-btn" target="_blank" href="https://shopee.com.br/triz.art">Loja</a>
-    </div>
+    <a class="hero-btn" target="_blank" href="https://shopee.com.br/triz.art">Loja</a>
+  </div>
   </div>
 </section>
 <!-- End Hero -->
 
 <main id="main">
 
-<!-- ======= Services Section ======= -->
-<section id="servicos" class="services">
-  <div class="container">
+  <!-- ======= Services Section ======= -->
+  <section id="servicos" class="services">
+    <div class="container">
 
-    <div class="section-title">
-      <span>Serviços</span>
-      <h2>Serviços</h2>
-      <p>O que você pode encontrar</p>
+      <div class="section-title">
+        <span>Serviços</span>
+        <h2>Serviços</h2>
+        <p>O que você pode encontrar</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 align-items-stretch" data-aos="fade-up">
+          <div class="icon-box">
+            <a href="#prontaentrega">
+              <div class="icon"><i class="bi bi-brush"></i></div>
+              <h4>Pronta Entrega</h4>
+              <p>Artes Prontas para a entrega</p>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="150">
+          <div class="icon-box">
+            <a href="#precos">
+              <div class="icon"><i class="bi bi-cash-stack"></i></div>
+              <h4 class="link-services">Comissões</h4>
+              <p class="link-services">Comissões e regras</p>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 align-items-stretch mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
+          <div class="icon-box">
+            <a href="#contato">
+              <div class="icon"><i class="bi bi-calculator-fill"></i></div>
+              <h4>Orçamentos</h4>
+              <p>Faça seus orçamentos aqui!</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
-
-    <div class="row">
-      <div class="col-lg-4 align-items-stretch" data-aos="fade-up">
-        <div class="icon-box">
-          <a href="#prontaentrega">
-            <div class="icon"><i class="bi bi-brush"></i></div>
-            <h4>Pronta Entrega</h4>
-            <p>Artes Prontas para a entrega</p>
-          </a>
-        </div>
-      </div>
-
-      <div class="col-lg-4 align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="150">
-        <div class="icon-box">
-          <a href="#precos">
-            <div class="icon"><i class="bi bi-cash-stack"></i></div>
-            <h4 class="link-services">Comissões</h4>
-            <p class="link-services">Comissões e regras</p>
-          </a>
-        </div>
-      </div>
-
-      <div class="col-lg-4 align-items-stretch mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
-        <div class="icon-box">
-          <a href="#contato">
-            <div class="icon"><i class="bi bi-calculator-fill"></i></div>
-            <h4>Orçamentos</h4>
-            <p>Faça seus orçamentos aqui!</p>
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-<!-- End Services Section -->
+  </section>
+  <!-- End Services Section -->
 
   <section id="precos" class="portfolio">
     <div class="container">
@@ -84,54 +86,63 @@
           </ul>
         </div>
       </div>
-
       <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="150">
-        <div class="col-lg-4 col-md-6 portfolio-item filter-digital">
-          <img src="assets/img/roqueiro.webp" class="img-fluid" alt="">
-          <h4 class="space-title">Busto <a href="#regras" class="details-link" title="Regras"><i class="bi bi-journal-bookmark-fill"></i></a></h4>
-          <p>Disponivel com fundo simples ou sem fundo neste valor:</p>
-          <p>R$ 40,00 </p>
-          <p>US$ 8,00</p>
-        </div>
-        <div class="col-lg-4 col-md-6  portfolio-item filter-digital">
-          <img src="assets/img/evan_whats.jpg" class="img-fluid" alt="">
-          <h4 class="space-title">Metade do corpo <a href="#regras" class="details-link" title="Regras"><i class="bi bi-journal-bookmark-fill"></i></a></h4>
-          <p>Disponivel com fundo simples ou sem fundo neste valor:</p>
-          <p>R$ 75,00 </p>
-          <p>US$ 15,00</p>
-          <h4 class="space-title">Corpo Inteiro <a href="#regras" class="details-link" title="Regras"><i class="bi bi-journal-bookmark-fill"></i></a></h4>
-          <p>Disponivel com fundo simples ou sem fundo neste valor:</p>
-          <p>R$ 120,00 </p>
-          <p>US$ 23,00 </p>
-        </div>
+        @foreach($artes as $arte)
+          @if($arte['statusArte'] == 1)
+          @php
 
-        <div class="col-lg-4 col-md-6 portfolio-item filter-tradicional">
-          <img src="assets/img/evanTradicional_comprimido.jpg" class="img-fluid" alt="">
-          <h4>Tradicional folha A4 <a href="#regras" class="details-link" title="Regras"><i class="bi bi-journal-bookmark-fill"></i></a></h4>
-          <p>R$ 80,00 - R$ 250,00 <br> US$ 16,00 - US$ 49,00</p>
-          <br>
-          <h4>Tradicional folha A3</h4>
-          <p>R$ 250,00 - R$ 500,00 <br> US$ 49,00 - US$ 98,00</p>
-          <br>
-          <h4>Tradicional folha A2</h4>
-          <p>Valor Mínimo:</p>
-          <p>R$ 500,00 <br> US$ 98,00 </p>
-        </div>
+          $temMateriais = false;
+          $materiaisAssociados = [];
 
-        <div class="col-lg-4 col-md-6 portfolio-item filter-digital">
-          <img src="assets/img/evansimples.webp" class="img-fluid" alt="">
-          <h4>Chibis ou Stickers <a href="#regras" class="details-link" title="Regras"><i class="bi bi-journal-bookmark-fill"></i></a></h4>
-          <p>R$ 20,00 <br> US$ 4,00 </p>
-        </div>
+            foreach($artesMateriais as $artesMaterial) {
+              if ($artesMaterial['idArte'] == $arte['idArte']) {
+              $temMateriais = true;
+                foreach($materiais as $material) {
+                  if ($artesMaterial['idMaterial'] == $material['idMaterial']) {
+                  $materiaisAssociados[] = $material['tituloMaterial'];
+                  }
+                }
+              }
+            }
 
-        <div class="col-lg-4 col-md-6 portfolio-item filter-digital">
-          <img src="assets/img/quadro1_comprimido.jpg" class="img-fluid" alt="">
-          <h4>Objetos, fundos, natureza etc <a href="#regras" class="details-link" title="Regras"><i class="bi bi-journal-bookmark-fill"></i></a></h4>
-          <p>R$ 70,00 - R$ 400,00 <br> US$ 14,00 - US$ 78,00</p>
+          $classe = $temMateriais ? 'filter-tradicional' : 'filter-digital';
+          @endphp
+
+        <div class="col-lg-4 col-md-4 portfolio-item {{ $classe }}">
+          <img src="/img/artes/{{ $arte['imagemArte'] }}" class="img-fluid" alt="{{ $arte['tituloArte'] }}">
+          <h4 class="space-title">
+            {{ $arte['tituloArte'] }}
+            <a href="#regras" class="details-link" title="Regras">
+              <i class="bi bi-journal-bookmark-fill"></i>
+            </a>
+          </h4>
+          <p>Disponível com fundo simples ou sem fundo neste valor:</p>
+          <p>R$ {{ $arte['valorArte'] }}</p>
+
+          @if($temMateriais)
+          <p><b>Materiais:</b></p>
+          @foreach($materiaisAssociados as $material)
+          <ul>
+            <li>{{ $material }}</li>
+          </ul>
+          @endforeach
+          @endif
+          @if($arte['emolduradoArte'] == 1 || $arte['envernizadoArte'] == 1)
+          <p><b>Informações Adicionais:</b></p>
+          <ul>
+          @if($arte['emolduradoArte'] == 1)
+            <li>Emoldurado</li>
+          @endif
+          @if($arte['envernizadoArte'] == 1)
+            <li>Envernizado</li>
+          @endif
+          </ul>
+          @endif
         </div>
+        @endif
+        @endforeach
+
       </div>
-
-    </div>
   </section>
   <!-- End Portfolio Section -->
   <section id="eventos" class="services">
@@ -154,163 +165,8 @@
         </div>
       </section><!-- End Events Section -->
     </div>
-  </section><!-- End Services Section -->
-  <!-- <section id="prontaentrega" data-aos="fade-right">
-    <div class="container">
-      <div class="row">
-
-        <div class="section-title">
-          <span>Pronta Entrega</span>
-          <h2>Pronta Entrega</h2>
-          <p>Todos os desenhos são devidamente invernizados</p>
-        </div>
-        <div class="modal fade bd-example-modal-lg" id="modal-bt"></div>
-
-        <div class="section-title">
-          <h4>Sessão Autorais</h4>
-        </div>
-        <div class="modal fade bd-example-modal-lg" id="modal-bt"></div>
-        <hr>
-        <div class="col-lg-4">
-          <img src="assets/img/evanTradicional_comprimido.jpg" class="img-fluid zoom-img" alt="">
-          <div class="d-flex justify-content-between align-items-center">
-            <h4 class="space-title mb-0">"Evan"</h4>
-            <a href="#regras" class="details-link" title="Regras">
-              <i class="bi bi-journal-bookmark-fill" style="font-size: 120%;"></i>
-            </a>
-          </div>
-          <p>R$ 85,00 <br> US$ 17,00</p>
-          <p>Materiais: grafite e carvão</p>
-          <p>Tamanho: 21.0x29.7cm (A4)</p>
-          <p>Sem moldura</p>
-        </div>
-
-        <div class="section-title">
-          <h4>Sessão Animes</h4>
-        </div>
-        <div class="modal fade bd-example-modal-lg" id="modal-bt"></div>
-        <hr>
-
-        <div class="col-lg-4">
-          <img src="assets/img/zentsu_loja_comprimido.jpg" class="img-fluid zoom-img" alt="">
-          <div class="d-flex justify-content-between align-items-center">
-            <h4 class="space-title mb-0">"Zenitsu - Demon Slayer"</h4>
-            <a href="#regras" class="details-link" title="Regras">
-              <i class="bi bi-journal-bookmark-fill" style="font-size: 120%;"></i>
-            </a>
-          </div>
-          <p>R$ 120,00 <br> US$ 23,00</p>
-          <p>Materiais: Tinta Óleo</p>
-          <p>Tamanho: 20x20cm</p>
-          <p>Sem moldura</p>
-        </div>
-        <div class="col-lg-4">
-          <img src="assets/img/dabi_loja_comprimido.jpg" class="img-fluid zoom-img" alt="">
-          <div class="d-flex justify-content-between align-items-center">
-            <h4 class="space-title mb-0">"Dabi - Boku No Hero"</h4>
-            <a href="#regras" class="details-link" title="Regras">
-              <i class="bi bi-journal-bookmark-fill" style="font-size: 120%;"></i>
-            </a>
-          </div>
-          <p>R$ 120,00 <br> US$ 23,00</p>
-          <p>Materiais: Tinta Óleo</p>
-          <p>Tamanho: 20x20cm</p>
-          <p>Sem moldura</p>
-        </div>
-        <div class="col-lg-4">
-          <img src="assets/img/pain_loja_comprimido.jpg" class="img-fluid zoom-img" alt="">
-          <div class="d-flex justify-content-between align-items-center">
-            <h4 class="space-title mb-0">"Pain - Naruto"</h4>
-            <a href="#regras" class="details-link" title="Regras">
-              <i class="bi bi-journal-bookmark-fill" style="font-size: 120%;"></i>
-            </a>
-          </div>
-          <p>R$ 55,00 <br> US$ 11,00</p>
-          <p>Materiais: Tinta Guache</p>
-          <p>Tamanho: 21.0x29.7cm (A4)</p>
-          <p>Sem moldura</p>
-        </div>
-        <div class="col-lg-4">
-          <img src="assets/img/l_loja_comprimido.jpg" class="img-fluid zoom-img" alt="">
-          <div class="d-flex justify-content-between align-items-center">
-            <h4 class="space-title mb-0">"L - Death Note"</h4>
-            <a href="#regras" class="details-link" title="Regras">
-              <i class="bi bi-journal-bookmark-fill" style="font-size: 120%;"></i>
-            </a>
-          </div>
-          <p>R$ 35,00 <br> US$ 7,00</p>
-          <p>Materiais: Tinta Guache e Nanquim</p>
-          <p>Tamanho: 21.0x29.7cm (A4)</p>
-          <p>Sem moldura</p>
-        </div>
-        <div class="col-lg-4">
-          <img src="assets/img/naruto_loja_comprimido.jpg" class="img-fluid zoom-img" alt="">
-          <div class="d-flex justify-content-between align-items-center">
-            <h4 class="space-title mb-0">"Naruto - Naruto"</h4>
-            <a href="#regras" class="details-link" title="Regras">
-              <i class="bi bi-journal-bookmark-fill" style="font-size: 120%;"></i>
-            </a>
-          </div>
-          <p>R$ 75,00 <br> US$ 15,00</p>
-          <p>Materiais: Tinta Guache</p>
-          <p>Tamanho: 21.0x29.7cm (A4)</p>
-          <p>Sem moldura</p>
-        </div>
-        <div class="col-lg-4">
-          <img src="assets/img/seungho_loja_comprimido.jpg" class="img-fluid zoom-img" alt="">
-          <div class="d-flex justify-content-between align-items-center">
-            <h4 class="space-title mb-0">"Seungho - Painter of the Nigth"</h4>
-            <a href="#regras" class="details-link" title="Regras">
-              <i class="bi bi-journal-bookmark-fill" style="font-size: 120%;"></i>
-            </a>
-          </div>
-          <p>R$ 45,00 <br> US$ 9,00</p>
-          <p>Materiais: Tinta Guache</p>
-          <p>Tamanho: 21.0x29.7cm (A4)</p>
-          <p>Sem moldura</p>
-        </div>
-        <div class="col-lg-4">
-          <img src="assets/img/todoroki_loja_comprimido.jpg" class="img-fluid zoom-img" alt="">
-          <div class="d-flex justify-content-between align-items-center">
-            <h4 class="space-title mb-0">"Todoroki - Boku No Hero"</h4>
-            <a href="#regras" class="details-link" title="Regras">
-              <i class="bi bi-journal-bookmark-fill" style="font-size: 120%;"></i>
-            </a>
-          </div>
-          <p>R$ 55,00 <br> US$ 11,00</p>
-          <p>Materiais: Tinta Guache</p>
-          <p>Tamanho: 42.0x59.4cm(A2)</p>
-          <p>Sem moldura</p>
-        </div>
-        <div class="col-lg-4">
-          <img src="assets/img/sangwoo_loja_comprimido.jpg" class="img-fluid zoom-img" alt="">
-          <div class="d-flex justify-content-between align-items-center">
-            <h4 class="space-title mb-0">"Sangwoo - Killing Stalking"</h4>
-            <a href="#regras" class="details-link" title="Regras">
-              <i class="bi bi-journal-bookmark-fill" style="font-size: 120%;"></i>
-            </a>
-          </div>
-          <p>R$ 65,00 <br> US$ 13,00</p>
-          <p>Materiais: Tinta Guache</p>
-          <p>Tamanho: 42.0x59.4cm(A2)</p>
-          <p>Sem moldura</p>
-        </div>
-        <div class="col-lg-4">
-          <img src="assets/img/katchan_loja_comprimido.jpg" class="img-fluid zoom-img" alt="">
-          <div class="d-flex justify-content-between align-items-center">
-            <h4 class="space-title mb-0">"Bakugo - Boku No Hero"</h4>
-            <a href="#regras" class="details-link" title="Regras">
-              <i class="bi bi-journal-bookmark-fill" style="font-size: 120%;"></i>
-            </a>
-          </div>
-          <p>R$ 75,00 <br> US$ 15,00</p>
-          <p>Materiais: Tinta Guache</p>
-          <p>Tamanho: 32.5x50.0cm</p>
-          <p>Sem moldura</p>
-        </div>
-      </div>
-    </div>
-  </section> -->
+  </section>
+  <!-- End Services Section -->
   <!-- ======= About Section ======= -->
   <section id="regras" class="about">
     <div class="container">

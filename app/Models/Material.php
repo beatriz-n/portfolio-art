@@ -10,4 +10,5 @@ class Material extends Model
     use HasFactory;
     protected $table = 'materiais';
     protected $primaryKey = 'idMaterial';
+    public $timestamps = false;
 }

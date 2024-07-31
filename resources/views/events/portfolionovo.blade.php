@@ -45,6 +45,7 @@
                             <label for="imagemArte" class="form-label">Imagem da Arte</label>
                             <input class="form-control" type="file" id="imagemArte" name="imagemArte" name="image" required>
                         </div>
+                        <div class="listarMaterial" style="display: none;">
                         <fieldset class="form-group">
                             <div class="row">
                                 <div class="col-sm-10">
@@ -63,8 +64,6 @@
                                 </div>
                             </div>
                         </fieldset>
-                        <br>
-                        <div class="listarMaterial" style="display: none;">
                             <div class="card mb-4">
                                 <div class="card-header" id="portfolio-table">
                                     <i class="fas fa-table me-1"></i>
@@ -101,10 +100,8 @@
                                 </div>
                             </div>
                         </div>
-
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
                     </div>
-                    <br>
-                    <button type="submit" class="btn btn-primary">Cadastrar</button>
                 </form>
             </div>
         </div>

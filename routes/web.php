@@ -17,9 +17,7 @@ use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ArteController::class, 'index']);
 
 //arte
 Route::get('/portfolionovo', function () {
@@ -38,19 +36,19 @@ Route::post('/insert', [ArteController::class, 'insert'])->middleware('auth');
 
 Route::get('/admin', [ArteController::class, 'show'])->name('admin')->middleware('auth');
 
-Route::post('/insertMaterial', [MaterialController::class, 'insert']);
+Route::post('/insertMaterial', [MaterialController::class, 'insert'])->middleware('auth');
 
-Route::get('/material', [MaterialController::class, 'show'])->name('material');
+Route::get('/material', [MaterialController::class, 'show'])->name('material')->middleware('auth');
 
 Route::get('/events/materialeditar/{id}', [MaterialController::class, 'edit'])->name('materialeditar');
 
-Route::post('/material/update/{id}', [MaterialController::class, 'update']);
+Route::post('/material/update/{id}', [MaterialController::class, 'update'])->middleware('auth');
 
-Route::get('/material/delete/{id}', [MaterialController::class, 'delete']);
+Route::get('/material/delete/{id}', [MaterialController::class, 'delete'])->middleware('auth');
 
-Route::post('/arte/update/{id}', [ArteController::class, 'update']);
+Route::post('/arte/update/{id}', [ArteController::class, 'update'])->middleware('auth');
 
-Route::get('/arte/delete/{id}', [ArteController::class, 'delete']);
+Route::get('/arte/delete/{id}', [ArteController::class, 'delete'])->middleware('auth');
 
 Route::get('/events/portfolioeditar/{id}', [ArteController::class, 'edit'])->name('portfolioeditar');
 

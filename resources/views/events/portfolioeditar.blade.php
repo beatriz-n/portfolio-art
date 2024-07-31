@@ -41,10 +41,17 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group col-md-12">
+                        <div class="row">
+                        <div class="form-group col-md-10">
                             <label for="imagemArte" class="form-label">Imagem da Arte</label>
                             <input class="form-control" type="file" id="imagemArte" name="imagemArte" name="image">
                         </div>
+                        <div class="form-group col-md-2">
+                        <img width="100px" src="/img/artes/{{ $arte['imagemArte'] }}" class="img-fluid" alt="{{ $arte['tituloArte'] }}">
+                        </div>
+                        </div>
+                        <br>
+                        <div class="listarMaterial" {{ count($artesMateriais) ? 'style=display:block;' : 'style=display:none;' }}>
                         <fieldset class="form-group">
                             <div class="row">
                                 <!-- <legend class="col-form-label col-sm-2 pt-0">Radios</legend> -->
@@ -64,8 +71,6 @@
                                 </div>
                             </div>
                         </fieldset>
-                        <br>
-                        <div class="listarMaterial" {{ count($artesMateriais) ? 'style=display:block;' : 'style=display:none;' }}>
                             <div class="card mb-4">
                                 <div class="card-header" id="portfolio-table">
                                     <i class="fas fa-table me-1"></i>
@@ -102,9 +107,8 @@
                                 </div>
                             </div>
                         </div>
+                        <button type="submit" class="btn btn-primary">Editar</button>
                     </div>
-                    <br>
-                    <button type="submit" class="btn btn-primary">Editar</button>
                 </form>
             </div>
         </div>

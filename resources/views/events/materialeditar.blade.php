@@ -22,9 +22,9 @@
                             </div>
                         </div>
                         </fieldset>
+                        <button type="submit" class="btn btn-primary">Editar</button>
                     </div>
-                    <br>
-                    <button type="submit" class="btn btn-primary">Editar</button>
+
                 </form>
             </div>
         </div>

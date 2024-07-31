@@ -10,8 +10,8 @@ use App\Models\ArtesMateriais;
 class ArteController extends Controller
 {
     //
-    public function index()
-    {
+    // public function index()
+    // {
 
         // $search = request('search');
 
@@ -25,7 +25,7 @@ class ArteController extends Controller
         // }
 
         // return view('welcome', ['events' => $events, 'search' => $search]);
-    }
+    // }
 
     public function create()
     {
@@ -145,5 +145,13 @@ class ArteController extends Controller
     {
         $artes = Arte::all()->toArray();
         return view('events.admin', ['artes' => $artes]);
+    }
+
+    public function index()
+    {
+        $artes = Arte::all()->toArray();
+        $artesMateriais = ArtesMateriais::all()->toArray();
+        $materiais = Material::all()->toArray();
+        return view('welcome', ['artes' => $artes, 'materiais' => $materiais, 'artesMateriais' => $artesMateriais]);
     }
 }
