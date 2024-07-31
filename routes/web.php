@@ -40,7 +40,7 @@ Route::post('/insertMaterial', [MaterialController::class, 'insert'])->middlewar
 
 Route::get('/material', [MaterialController::class, 'show'])->name('material')->middleware('auth');
 
-Route::get('/events/materialeditar/{id}', [MaterialController::class, 'edit'])->name('materialeditar');
+Route::get('/events/materialeditar/{id}', [MaterialController::class, 'edit'])->name('materialeditar')->middleware('auth');
 
 Route::post('/material/update/{id}', [MaterialController::class, 'update'])->middleware('auth');
 
@@ -50,7 +50,7 @@ Route::post('/arte/update/{id}', [ArteController::class, 'update'])->middleware(
 
 Route::get('/arte/delete/{id}', [ArteController::class, 'delete'])->middleware('auth');
 
-Route::get('/events/portfolioeditar/{id}', [ArteController::class, 'edit'])->name('portfolioeditar');
+Route::get('/events/portfolioeditar/{id}', [ArteController::class, 'edit'])->name('portfolioeditar')->middleware('auth');
 
 
 Route::middleware([
