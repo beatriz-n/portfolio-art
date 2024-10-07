@@ -39,7 +39,7 @@ This is a system built with Laravel, Bootstrap, Jetstream, jQuery, and Ajax. It 
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/portfolio-artista.git
+    git clone https://github.com/your-username/portfolio-art.git
     ```
 
 2. Install the dependencies:
